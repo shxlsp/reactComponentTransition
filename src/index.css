@@ -1,0 +1,7 @@
+.free-transition.free-transition-static{
+    transition: transform .3s;
+    transform: scale(0);
+}
+.free-transition.free-transition-static.default-transition{
+    transform: scale(1);
+}
