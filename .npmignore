@@ -1,0 +1,4 @@
+src/
+node_modules/
+webpack.prod.js
+.gitignore

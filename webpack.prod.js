@@ -1,10 +1,15 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');  
-  module.exports = {
+const TerserPlugin = require("terser-webpack-plugin");
+module.exports = {
   entry: './src/index.js',
-  plugins: [
-    new CleanWebpackPlugin()
-  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
+  },
   module: {
     rules: [{
         test: /\.js$/,
@@ -33,7 +38,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
   },
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist') //定义输出文件夹dist路径
+    path: path.resolve(__dirname, 'dist'), //定义输出文件夹dist路径
+    library: "react-component-transition-in-out",   
+    libraryTarget: "umd",
+    // libraryTarget: "umd", // 通用模块定义
+    // libraryTarget: "umd2", // 通用模块定义
+    // libraryTarget: "commonjs2", // exported with module.exports
+    // libraryTarget: "commonjs-module", // 使用 module.exports 导出
+    // libraryTarget: "commonjs", // 作为 exports 的属性导出
+    // libraryTarget: "amd", // 使用 AMD 定义方法来定义
+    // libraryTarget: "this", // 在 this 上设置属性
+    // libraryTarget: "var", // 变量定义于根作用域下
+    // libraryTarget: "assign", // 盲分配(blind assignment)
+    // libraryTarget: "window", // 在 window 对象上设置属性
+    // libraryTarget: "global", // property set to global object
+    // libraryTarget: "jsonp", // jsonp wrapper
   },
   mode: "production"
 };
