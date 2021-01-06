@@ -1,6 +1,6 @@
 {
   "name": "react-component-transition-in-out",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "为react组件添加挂载/删除动画",
   "main": "dist/index.js",
   "scripts": {

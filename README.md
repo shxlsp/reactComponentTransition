@@ -5,7 +5,16 @@
 ```Bash
 npm i -S react-component-transition-in-out
 ```
-
+### 支持传参
+```javascript
+    const props = {
+        initClassName: 'init'       //组件动画常态值
+        endClassName: 'destroy'     //组件动画初始值
+    }
+    <ReactComponentTransitionInOut {...props}>
+        { isShow && <div>demo</div> }
+    </ReatComponentTransitionInOut>
+```
 ### 用法demo
 ```javascript
 import React, { PropTypes, Component } from 'react'
