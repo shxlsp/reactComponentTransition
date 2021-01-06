@@ -2,6 +2,7 @@
 为react组件添加挂载/删除动画
 
 用法demo
+
 import React, { PropTypes, Component } from 'react'
 import ReactComponentTransitionInOut from 'react-component-transition-in-out';
 
