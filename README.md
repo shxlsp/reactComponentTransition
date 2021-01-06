@@ -1,8 +1,13 @@
 # reactComponentTransition
 为react组件添加挂载/删除动画
 
-用法demo
+### 如何引入
+```Bash
+npm i -S react-component-transition-in-out
+```
 
+### 用法demo
+```javascript
 import React, { PropTypes, Component } from 'react'
 import ReactComponentTransitionInOut from 'react-component-transition-in-out';
 
@@ -33,3 +38,4 @@ class Test extends Component {
         )
     }    
 }
+```
