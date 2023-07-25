@@ -9,6 +9,7 @@ class TransitionComponent extends Component {
             children: null
         }
         this.transitionEnd = this.whichTransitionEvent();
+        this.endTimeout = null;
     }
 
     componentDidMount(){
@@ -55,13 +56,23 @@ class TransitionComponent extends Component {
 
     listenTransition = ( isIn, children ) => {
         setTimeout(() => {
-            let newState = {}
+            let newState = {};
+            clearTimeout(this.endTimeout);
             if( isIn ){
                 newState.isShow = true;
                 newState.isShowDom = true;
                 newState.children = children;
             }else{
                 newState.isShow = false;
+                const styleObj = getComputedStyle(this.transitionDom);
+                const time = parseFloat(styleObj.transitionDuration) * 1000 || 1000;
+                const daily = 100;
+                this.endTimeout = setTimeout(() => {
+                    this.setState({
+                        isShowDom: false,
+                        children: null,
+                    });
+                }, time + daily);
             }
             this.setState(newState);
         }, 0)
